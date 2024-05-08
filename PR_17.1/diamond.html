@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollow Diamond Shape</title>
+<style>
+  #diamond-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+
+<button onclick="generateDiamond()">Generate Diamond</button>
+<div id="diamond-container"></div>
+
+<script>
+function generateDiamond() {
+  const size = 5; // Change the size of the diamond here
+
+  let diamond = '';
+  for (let i = 0; i < size; i++) {
+    let row = '';
+    for (let j = 0; j < size - i; j++) {
+      row += '&nbsp &nbsp;';
+    }
+    for (let k = 0; k < 2 * i + 1; k++) {
+      if (k === 0 || k === 2 * i) {
+        row += '*';
+      } else {
+        row += '&nbsp &nbsp;';
+      }
+    }
+    diamond += `<div>${row}</div>`;
+  }
+
+  for (let i = size - 2; i >= 0; i--) {
+    let row = '';
+    for (let j = 0; j < size - i; j++) {
+      row += '&nbsp;&nbsp';
+    }
+    for (let k = 0; k < 2 * i + 1; k++) {
+      if (k === 0 || k === 2 * i) {
+        row += '*';
+      } else {
+        row += '&nbsp;&nbsp';
+      }
+    }
+    diamond += `<div>${row}</div>`;
+  }
+
+  document.getElementById('diamond-container').innerHTML = diamond;
+}
+</script>
+
+</body>
+</html>

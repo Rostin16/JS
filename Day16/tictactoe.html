@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      localStorage.setItem("chance", 0);
+      sessionStorage.setItem("chance", 0);
+
+      function takeChance(c1) {
+        c = localStorage.getItem("chance");
+
+        //  alert(c);
+        player = "";
+
+        if (c <= 9 && c1.value == "_") {
+          c++;
+          if (c % 2 != 0) {
+            player = "X";
+            c1.style.color = "red";
+            c1.value = player;
+          } else {
+            player = "O";
+            c1.style.color = "green";
+            c1.value = player;
+          }
+
+           whoWin(player);
+        } else {
+          alert("Illegal move!");
+        }
+
+        localStorage.setItem("chance", c);
+      }
+
+
+      function whoWin(p)
+      {
+        c1 = document.getElementsByName("btn");
+        f=1;
+        for(i=0;i<=2;i++)
+        {
+            if(p!=c1[i].value)
+            {
+                f=0;
+                break;
+            }
+        }
+
+
+        if(f==1)
+        {
+            alert("Player "+p+" Wins!");
+            return;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input
+      type="button"
+      name="btn"
+      value="_"
+      onclick="takeChance(this)"
+    /><br />
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input
+      type="button"
+      name="btn"
+      value="_"
+      onclick="takeChance(this)"
+    /><br />
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input type="button" name="btn" value="_" onclick="takeChance(this)" />
+    <input
+      type="button"
+      name="btn"
+      value="_"
+      onclick="takeChance(this)"
+    /><br />
+  </body>
+</html>

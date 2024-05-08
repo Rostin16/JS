@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+      
+        function sumSrs(start,end)
+        {
+            
+
+            if(start<=end)
+            {
+                s+= Number(start);
+                sumSrs(Number(start)+1,end);
+            }
+
+            return s;
+
+        }
+
+        function test(start,end)
+        {
+            s=0;
+            document.getElementById("sumtxt").value=sumSrs(start,end);
+        }
+
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <form name="frm1" method="post">
+
+        Enter Start:<input type="text"  id="stxt" /><br/>
+        Enter End:<input type="text"  id="etxt" /><br/>
+        Total:<input type="text"  id="sumtxt" /><br/>
+        <input type="button" name="btn" value="Find Fact" onclick="test(stxt.value,etxt.value)"/>
+
+
+
+    </form>
+</body>
+</html>

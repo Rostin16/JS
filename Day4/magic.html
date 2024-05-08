@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function checkMagic()
+        {
+            n = parseInt(document.getElementById("n1").value);
+            sum=0;
+          
+
+           while(n!=0)
+           {
+                rem = n%10;
+                sum+=rem;
+                n=parseInt(n/10);
+                if(n==0 && sum>=10)
+                {
+                    n=sum;
+                    sum=0;
+                }
+
+
+           }
+
+           if(sum==1)
+           {
+            alert("Its a magic number!");
+           }
+           else
+           {
+            alert("Its not a magic number!");
+           } 
+        }
+
+    </script>
+
+</head>
+<body>
+    
+
+    <form name="frm1" method="post">
+
+        Enter number : <input type="text" id="n1"/>
+        <input type="button" name="btn" value="Find Magic Number" onclick="checkMagic()" />
+
+
+
+    </form>
+
+
+</body>
+</html>

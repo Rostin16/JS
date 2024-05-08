@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+     
+
+        function add(c1,c2,c3)
+        {
+           n1 = parseFloat(c1.value);
+           n2 = parseFloat(c2.value);
+            ans = n1+n2;
+         //  alert(ans);
+            c3.value=ans;
+
+
+        }
+
+
+    </script>   
+</head>
+<body>
+    
+
+    <form name="frm">
+
+        Enter number1:<input type="text" name="n1txt"><br/>
+        Enter number2:<input type="text" name="n2txt"><br/>
+        Answer:<input type="text" name="anstxt" readonly><br/>        
+        <input type="button" name="btn" value="Addition" onclick="add(n1txt,n2txt,anstxt)"  />
+
+
+    </form>
+
+
+
+</body>
+</html>

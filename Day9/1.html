@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function findMaxMin(c1) {
+            //  alert("find max function called! "+c1.length);
+            mx = Number(c1[0].value);
+            mn = Number(c1[0].value);
+
+            for (i = 1; i < c1.length; i++) {
+                if (mx < c1[i].value) {
+                    mx = c1[i].value;
+                }
+                if (mn > c1[i].value) {
+                    mn = c1[i].value;
+
+                }
+
+            }
+
+            for (i = 0; i < c1.length; i++) {
+                if (c1[i].value == mx) {
+                    c1[i].style.backgroundColor = "Green";
+                }
+                else if (c1[i].value == mn) {
+                    c1[i].style.color = "yellow";
+                }
+
+            }
+
+            alert("Max value=" + mx + "\nMin value=" + mn);
+
+        }
+
+
+        function linearSearch(c1) {
+
+            srch = Number(prompt("Enter the element to be searched:"));
+            flag = false;
+            count = 0;
+            for (i = 0; i < c1.length; i++) {
+                if (srch == Number(c1[i].value)) {
+                    alert(srch + " found at position=" + (i + 1));
+                    count++;
+                    flag = true;
+                }
+
+
+            }
+            if (!flag) {
+                alert(srch + " not found!");
+            }
+            else {
+                alert(" Total number of occurrences = " + count);
+            }
+
+
+        }
+
+        function test(val, c1) {
+
+            switch (val) {
+
+                case 1:
+                    // alert("find max and min selected!");
+                    findMaxMin(c1);
+                    break;
+                case 2:
+                    linearSearch(c1);
+
+
+
+
+            }
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <input type="text" name="ntxt" /><br />
+        <input type="text" name="ntxt" /><br />
+        <input type="text" name="ntxt" /><br />
+        <input type="text" name="ntxt" /><br />
+        <input type="text" name="ntxt" /><br />
+        <input type="text" name="ntxt" /><br />
+        <input type="button" name="btn" value="Find Max Min" onclick="test(1,ntxt)" /><br />
+        <input type="button" name="btn" value="Search" onclick="test(2,ntxt)" /><br />
+    </form>
+
+</body>
+
+</html>

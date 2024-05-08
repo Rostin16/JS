@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function test(x, y = 30) {
+        // default valued parameter
+        document.write(x + " " + y + "<br>");
+      }
+
+      test(10);
+      test(20, 70);
+
+      function test2(...paras) {
+        x = "";
+        for (i of paras) {
+          x += i + " ";
+        }
+        document.write(x + "<br>");
+      }
+
+      test2(1, 2, 3, 4);
+      test2("apple", "mango");
+      test2("apple", 1.5, "x", -66);
+    </script>
+  </head>
+  <body></body>
+</html>

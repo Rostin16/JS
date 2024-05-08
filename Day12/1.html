@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+            function sel(c1)
+            {
+               // alert(c1[0].value);
+
+
+
+               for(i=0;i<c1.length;i++)
+               {
+                    min_index=i;
+
+                    for(j=i+1;j<c1.length;j++) // to find out the minimum out of lot
+                    {
+
+                        n1 = parseInt(c1[min_index].value);
+                        n2 = Number(c1[j].value);
+                        if(n1>n2)
+                        {
+                            min_index=j;    
+                        }
+
+                    }
+                    if(min_index!=i)  // swap
+                    {
+                        temp=c1[min_index].value;
+                        c1[min_index].value=c1[i].value;
+                        c1[i].value=temp;
+                    }
+
+
+
+               }
+
+
+
+            }
+
+
+            function bSearch(c1,srch)
+            {
+                sel(c1);
+
+                l = 0;
+                u = c1.length-1;
+
+                for(mid=parseInt((l+u)/2);l<=u;mid=parseInt((l+u)/2))
+                {
+
+                        if(c1[mid].value==srch)
+                        {
+                            alert("Element found!");
+                            return;
+                        }
+                        else if(srch<c1[mid].value)
+                        {
+                            u=mid-1;
+                        }
+                        else
+                        {
+                            l=mid+1;
+                        }
+
+                }
+                alert("Element not found!");
+
+            }
+
+
+    </script>
+
+</head>
+<body>
+    
+
+    <form name="frm1">
+
+
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        <input type="text" name="ntxt" /><br/>
+        Ele to be searched:<input type="text" name="stxt" /><br/>
+        <input type="button" name="btn" value="Selection Sort" onclick="bSearch(ntxt,stxt.value)" /><br/>
+
+
+
+    </form>
+
+
+</body>
+</html>

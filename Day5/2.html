@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+            function findPali(n)
+            {
+
+                num = parseInt(n);
+                num1 = num;
+                rem=0;
+                rev="";
+                flag=false;
+
+                if(num1<0)
+                 {
+                    num1=-num1;
+                    flag=true;
+                }
+              
+                while(num1!=0)
+                {
+                     rem= num1%10;
+                     rev+=rem;   
+                     num1 = parseInt(num1/10);
+                }
+
+             //   alert(rev);
+                rev = parseInt(rev);
+
+                if(flag)
+                {
+                    rev=-rev;
+                }
+
+                if(num===rev)
+                {
+                    alert("The number "+num+" is Palindrome!");
+                }
+                else
+                {
+                    alert("The number "+num+" is not a Palindrome!");
+                }
+            }
+    </script>
+</head>
+<body>
+    <form name="frm">
+
+
+        Enter no:<input type="text" name="ntxt" /><br/>
+
+        <input type="button" name="btn" value="Find Palindrome" onclick="findPali(ntxt.value)"/>
+
+
+
+
+    </form>
+
+</body>
+</html>

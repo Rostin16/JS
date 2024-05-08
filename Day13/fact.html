@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function findFact(n)
+        {
+            f=1;
+
+            if(n==0)
+            {
+                return 1;
+            }
+            f=n*findFact(n-1);
+            return f;
+       
+        }
+        function test(n)
+        {
+            document.getElementById("n1txt").value=findFact(n);
+        }
+
+    </script>
+
+
+</head>
+<body>
+    
+    <form name="frm1" method="post">
+
+        Enter number:<input type="text" name="ntxt" id="ntxt" /><br/>
+        Answer:<input type="text"  id="n1txt" /><br/>
+        <input type="button" name="btn" value="Find Fact" onclick="test(ntxt.value)"/>
+
+
+
+    </form>
+      
+</body>
+</html>

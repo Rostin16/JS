@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function show(val) {
+        document.write(val);
+      }
+
+      // show("hi there this is a normal JS function!");
+
+      show1 = function (val) {
+        document.write(val);
+      };
+
+      //show1("this is a new type of function!");
+
+      /*function show2()
+      {
+        return "This is just another way of defining function , Arrow type function!" ;
+      }
+
+      show2 = () => "This is just another way of defining function , Arrow type function!" ;*/
+
+      show2 = () =>
+        "This is just another way of defining function , Arrow type function!";
+
+      //  document.write(show2());
+
+      findPrime = (n) => {
+        primeFlag = true;
+
+        for (i = 2; i < n; i++) {
+          if (n % i == 0) {
+            primeFlag = false;
+            break;
+          }
+        }
+
+        if (n == 1 || n == 0) {
+          return `The number ${n} is a special number!`;
+        } else if (n < 0) {
+          return `Negative number ${n} is not prime!`;
+        } else if (primeFlag) {
+          return `The number ${n} is prime!`;
+        }
+        return `The number ${n} is composite!`;
+      };
+
+      document.write(findPrime(0));
+    </script>
+  </head>
+  <body></body>
+</html>

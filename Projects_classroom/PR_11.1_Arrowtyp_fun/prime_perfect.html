@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime and Perfect Number</title>
+    <script>
+        
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0)
+                    return false;
+            }
+
+            return true;
+        }
+
+        // Arrow function to find perfect numbers
+        const isPerfect = num => {
+            if (num <= 1) return false;
+
+            let sum = 1; // Start with 1 as the first divisor
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) {
+                    sum += i;
+                    if (i * i !== num) // Avoid adding square root of num twice
+                        sum += num / i;
+                }
+            }
+
+            return sum === num;
+        };
+
+        // Function to handle form submission
+        function handleSubmit() {
+            const number = parseInt(document.getElementById('number').value);
+            const resultElement = document.getElementById('result');
+
+            if (isNaN(number) || number < 1) {
+                resultElement.innerHTML = 'Please enter a valid positive integer.';
+                return;
+            }
+
+            if (isPrime(number)) {
+                resultElement.innerHTML = `${number} is a prime number.`;
+            } else {
+                resultElement.innerHTML = `${number} is not a prime number.`;
+            }
+
+            if (isPerfect(number)) {
+                resultElement.innerHTML += `<br>${number} is a perfect number.`;
+            } else {
+                resultElement.innerHTML += `<br>${number} is not a perfect number.`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 style="color: blue;">Prime and Perfect Number Checker</h1>
+    <form onsubmit="handleSubmit(); return false;">
+        <h4 style="color: purple;" >Enter a number:</h4>
+        <input type="text" id="number" name="number" required>
+        <button type="submit" style="color: white; background-color: red;">Search</button>
+    </form>
+    <div id="result"></div>
+</body>
+</html>

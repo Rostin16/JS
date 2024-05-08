@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertion</title>
+
+    <script>
+
+
+        function disp(a)
+        {
+            for(k=0;k<a.length;k++)
+            {
+                document.write(a[k]+" ");
+            }
+
+        }
+        function insertion(c1)
+        {
+
+            
+            const a=[];
+
+            for(i=0;i<c1.length;i++)
+            {
+                a[i]=Number(c1[i].value);
+            }
+
+
+            for(i=1;i<a.length;i++)
+            {
+                j=i-1;
+
+                temp=a[i];
+
+                while(j>=0 && a[j]>temp)
+                {
+                    a[j+1]=a[j];
+                    j--;
+                }
+
+
+                a[j+1]=temp;
+
+                document.write("Pass no. :"+i+": ");
+                disp(a);
+                document.write("<br/>");
+
+            }
+
+
+        }
+
+
+
+    </script>
+
+
+
+
+</head>
+<body>
+    <form>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+    <input type="text" name="n1txt" /><br/>
+<input type="button" name="btn" value="Insert sort" onclick="insertion(n1txt)" /><br/>
+</form>
+</body>
+</html>

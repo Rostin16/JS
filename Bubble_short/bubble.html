@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble_sort</title>
+    <script>
+        function bbl(b1)
+        {
+            for(i=0;i<b1.length-1;i++)//passes
+            {
+                for(j=0;j<b1.length-1;j++)
+                {
+                    e1=Number(b1[j].value);
+                    e2=Number(b1[j+1].value);
+                    if(e1>e2){
+                        t=b1[j].value;
+                        b1[j].value=b1[j+1].value;
+                        b1[j+1].value=t;
+                    }
+                }
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <form>
+    1.<input type="text" name="ntxt"><br>
+    2.<input type="text" name="ntxt"><br>
+    3.<input type="text" name="ntxt"><br>
+    4.<input type="text" name="ntxt"><br>
+    5.<input type="text" name="ntxt"><br>
+    6.<input type="text" name="ntxt"><br>
+    <input type="button" name="btn" value="bubble sort" onclick="bbl(ntxt)"><br>
+    </form>
+
+    
+</body>
+</html>

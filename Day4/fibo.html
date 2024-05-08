@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function findFibo(order)
+        {
+            l=0;
+            p=1;
+            msg="";
+            for(i=1;i<=order;i++)
+            {
+                
+                c=l+p;
+                
+                msg = msg + l + "  ";
+
+                l=p;
+                p=c;
+            }
+
+            document.write(msg);
+        }
+
+
+    </script>
+</head>
+<body>
+    
+    <form name="frm1" method="post">
+
+
+         Enter order of Series : <input type="text" name="otxt" /><br/>
+         
+         <input type="button" name="btn" value="Generate Fibonacci" onclick="findFibo(otxt.value)"  />
+
+
+    </form>
+
+</body>
+</html>

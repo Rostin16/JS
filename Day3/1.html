@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="alljs.js"></script>
+
+    <script>
+
+       
+
+        function checkForm(f1)
+        {
+
+               with(f1)
+               { 
+                    if(!checkBlank(ntxt,"Name field cannot be left blank"))
+                    {
+                           return false; 
+                    }
+                    if(!checkBlank(utxt,"User-ID field cannot be left blank"))
+                    {
+                           return false; 
+                    }
+                    if(!checkPassLength(ptxt,"Password must contains atleast 6 characters"))
+                    {
+                           return false; 
+                    }
+                    if(!checkPassConfPass(ptxt,cptxt,"Password and confrim password must match!"))
+                    {
+                           return false; 
+                    }
+               }
+             
+           
+        }
+
+    </script>
+
+</head>
+<body>
+    
+
+    <form name="frm1" method="post" action="processReg.php">
+
+        Name : <input type="text" name="ntxt" /><br/>
+        UserId : <input type="text" name="utxt" /><br/>
+        Password : <input type="password" name="ptxt" /><br/>
+        Confirm Password : <input type="password" name="cptxt" /><br/>
+
+        <input type="submit" name="submit" value="Register" onclick="return checkForm(frm1)"/>
+
+
+    </form>
+
+     
+
+
+
+</body>
+</html>

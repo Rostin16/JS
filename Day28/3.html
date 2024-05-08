@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const ary = ["jan", "feb", 12, 56.7];
+
+      document.write(ary.pop() + "<br/>");
+      document.write(ary + "<br/>");
+
+      ary.push("new data");
+      document.write(ary + "<br/>");
+
+      ary.shift();
+      document.write(ary + "<br/>");
+
+      ary.unshift("first");
+      document.write(ary + "<br/>");
+
+      const ary1 = [1, 2, 3, 4];
+
+      ary1.splice(-2, 1, 7, 8, 9);
+      document.write(ary1 + "<br/>");
+
+      const ary2 = [-1, 2, -3, 4];
+
+      ary3 = ary2.filter(function (n) {
+        if (n > 0) {
+          return n;
+        }
+      });
+      document.write(ary3 + "<br/>");
+      document.write(ary2 + "<br/>");
+
+      ary4 = ary2.map(function (n) {
+        return 10 * n;
+      });
+
+      document.write(ary4 + "<br/>");
+      document.write(ary2 + "<br/>");
+    </script>
+  </head>
+  <body></body>
+</html>

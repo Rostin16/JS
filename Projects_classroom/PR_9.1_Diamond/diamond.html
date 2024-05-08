@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollow Diamond Pattern</title>
+    
+
+<script>
+    
+    function Diamond() {
+    const diamond = document.getElementById('diamond');
+    
+
+    
+    const size = 5; 
+
+    let Pattern = '';
+
+   
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size - i - 1; j++) {
+            Pattern += '&nbsp;'; 
+        }
+
+        Pattern += '*'; // start for left side pattern
+
+        if (i != 0) {
+            for (let k = 0; k < 2 * i - 1; k++) {
+                Pattern += '&nbsp;'; 
+            }
+            Pattern += '*'; 
+        }
+
+        Pattern += '<br>'; 
+    }
+
+    
+    for (let i = size - 2; i >= 0; i--) {
+        for (let j = 0; j < size - i - 1; j++) {
+            Pattern += '&nbsp;'; // Add spaces for the bottom part
+        }
+
+        Pattern += '*'; // Add the left star
+
+        if (i !== 0) {
+            for (let k = 0; k < 2 * i - 1; k++) {
+                Pattern += '&nbsp;'; 
+            }
+            Pattern += '*'; //  right star
+        }
+
+        Pattern += '<br>'; 
+    }
+
+    diamond.innerHTML = Pattern;
+}
+
+</script>
+
+
+
+
+</head>
+<body>
+    
+    <div id="diamond"></div>
+    <button onclick="Diamond()">Hollow Diamond Pattern</button>
+
+   
+</body>
+</html>

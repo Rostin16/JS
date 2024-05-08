@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      /*
+        Wraping up of data member and member method in single unit is
+        termed as class and this property of class is known as Encapsulation.
+
+*/
+      class A {
+        // data member + member methods
+
+        constructor(
+          nm,
+          ag // here this.name and this.age are class data members.
+        ) {
+          this.name = nm; // here nm and ag are local variables.
+          this.age = ag;
+          document.write("Constructor invoked!<br>");
+        }
+
+        show() {
+          return this.name + "~" + this.age + "<br>";
+        }
+      }
+
+      const p1 = new A("Nilesh", 44);
+      const p2 = new A("Atit", 44);
+      const p3 = new A("Amit", 43); // constructors are invoked implicitely
+
+      document.write(p3.show());
+      document.write(p1.show());
+      document.write(p2.show());
+    </script>
+  </head>
+  <body></body>
+</html>
