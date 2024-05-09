@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime & Perfect Number</title>
+</head>
+
+<body>
+    <center>
+        <h1 style="color: blue;">Check Prime and Perfect Number</h1>
+
+    Enter a number:
+    <input type="number" id="ntxt">
+    <br><br>
+
+    <button onclick="checkNumber()" style="background-color: #4CAF50;
+border: none;
+color: white;
+padding: 14px 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 4px 2px;
+border-radius: 10px;">Check Number</button>
+
+    <div id="result"></div>
+
+
+    </center>
+    
+    <script>
+        // number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+
+            if (num % 2 === 0 || num % 3 === 0) return false;
+
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        // Arrow function 
+        const isPerfect = num => {
+            let sum = 1;
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) {
+                    sum += i;
+                    if (i * i !== num) {
+                        sum += num / i;
+                    }
+                }
+            }
+            if (sum === num && num !== 1) return true;
+            return false;
+        };
+
+        // entered number is prime or perfect
+        function checkNumber() {
+            const number = parseInt(document.getElementById("ntxt").value);
+            let resultText = "";
+
+            if (isPrime(number)) {
+                resultText = number + " is a prime number.";
+            } else {
+                resultText = number + " is not a prime number.";
+            }
+
+            resultText += "<br>";
+
+            if (isPerfect(number)) {
+                resultText += number + " is a perfect number.";
+            } else {
+                resultText += number + " is not a perfect number.";
+            }
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+
+</body>
+
+</html>
