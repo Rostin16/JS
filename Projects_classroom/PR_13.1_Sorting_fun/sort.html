@@ -1,103 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sort Numbers</title>
+    <title>Basic Calculation</title>
+</head>
+
+<body>
+    <center>
+        <h1 style="color:#1e3e6a;">Sort Numbers</h1>
+
+        <label for="numbersInput" style="color:#e2267b; font-weight: bold;">Enter 10 numbers:</label><br>
+        <input type="text" id="numbersInput"><br><br><br>
+
+
+
+
+
+        <label for="userDefinedResult" style="color:#e2267b; font-weight: bold;">User Defined Sort Result:</label><br>
+        <input type="text" id="userDefinedResult"><br>
+        <button onclick="sortWithUserDefined()" style="background-color: #4CAF50;
+border: none;
+color: white;
+padding: 8px 15px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 4px 2px;
+border-radius: 10px;">Sort with User Defined Function</button><br><br>
+
+
+
+        <label for="builtInResult" style="color:#e2267b; font-weight: bold;">Built-In Sort Result:</label><br>
+        <input type="text" id="builtInResult"><br>
+        <button onclick="sortWithBuiltIn()" style="background-color: #4CAF50;
+border: none;
+color: white;
+padding: 8px 15px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 14px;
+margin: 4px 2px;
+border-radius: 10px;">Sort with Built-In Function</button><br>
+    </center>
     <script>
-        // User-defined sorting function
-        function customSort(arr) {
-            return arr.sort((a, b) => a - b);
+        // Function to sort numbers using user-defined sorting function
+        function sortWithUserDefined() {
+            const numbersInput = document.getElementById("numbersInput").value.trim().split(" ").map(Number);
+            const sortedNumbers = userDefinedSort(numbersInput);
+            document.getElementById("userDefinedResult").value = sortedNumbers.join(" ");
         }
 
-        // Function to sort using built-in function
-        function builtInSort(arr) {
-            return arr.sort((a, b) => a - b);
+        // Function to sort numbers using built-in sorting function
+        function sortWithBuiltIn() {
+            const numbersInput = document.getElementById("numbersInput").value.trim().split(" ").map(Number);
+            const sortedNumbers = numbersInput.slice().sort((a, b) => a - b);
+            document.getElementById("builtInResult").value = sortedNumbers.join(" ");
         }
 
-        // Function to handle sorting and display results
-        function sortAndDisplay() {
-            const numbers = [];
-            for (let i = 0; i < 10; i++) {
-                const num = parseInt(document.getElementById(`number${i}`).value);
-                if (!isNaN(num)) {
-                    numbers.push(num);
+        // User-defined sorting function (Bubble Sort)
+        function userDefinedSort(arr) {
+            let len = arr.length;
+            for (let i = 0; i < len; i++) {
+                for (let j = 0; j < len - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
                 }
             }
-
-            const customSortedNumbers = customSort([...numbers]);
-            const builtInSortedNumbers = builtInSort([...numbers]);
-
-            // Display custom sorted numbers
-            for (let i = 0; i < 10; i++) {
-                document.getElementById(`customSorted${i}`).value = customSortedNumbers[i];
-            }
-
-            // Display built-in sorted numbers
-            for (let i = 0; i < 10; i++) {
-                document.getElementById(`builtInSorted${i}`).value = builtInSortedNumbers[i];
-            }
+            return arr;
         }
     </script>
-</head>
-<body>
-    <h1>Sort Numbers</h1>
-    <form>
-        <p>Enter 10 numbers:</p>
-        <table>
-            <tbody>
-                <tr>
-                    <td><input type="text" id="number0"></td>
-                    <td><input type="text" id="number1"></td>
-                    <td><input type="text" id="number2"></td>
-                    <td><input type="text" id="number3"></td>
-                    <td><input type="text" id="number4"></td>
-                    <td><input type="text" id="number5"></td>
-                    <td><input type="text" id="number6"></td>
-                    <td><input type="text" id="number7"></td>
-                    <td><input type="text" id="number8"></td>
-                    <td><input type="text" id="number9"></td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" onclick="sortAndDisplay()">Sort Using Custom Function</button>
-        <button type="button" onclick="sortAndDisplay()">Sort Using Built-in Function</button>
-    </form>
 
-    <h2>Custom Sorted Numbers</h2>
-    <table>
-        <tbody>
-            <tr>
-                <td><input type="text" id="customSorted0" readonly></td>
-                <td><input type="text" id="customSorted1" readonly></td>
-                <td><input type="text" id="customSorted2" readonly></td>
-                <td><input type="text" id="customSorted3" readonly></td>
-                <td><input type="text" id="customSorted4" readonly></td>
-                <td><input type="text" id="customSorted5" readonly></td>
-                <td><input type="text" id="customSorted6" readonly></td>
-                <td><input type="text" id="customSorted7" readonly></td>
-                <td><input type="text" id="customSorted8" readonly></td>
-                <td><input type="text" id="customSorted9" readonly></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Built-in Sorted Numbers</h2>
-    <table>
-        <tbody>
-            <tr>
-                <td><input type="text" id="builtInSorted0" readonly></td>
-                <td><input type="text" id="builtInSorted1" readonly></td>
-                <td><input type="text" id="builtInSorted2" readonly></td>
-                <td><input type="text" id="builtInSorted3" readonly></td>
-                <td><input type="text" id="builtInSorted4" readonly></td>
-                <td><input type="text" id="builtInSorted5" readonly></td>
-                <td><input type="text" id="builtInSorted6" readonly></td>
-                <td><input type="text" id="builtInSorted7" readonly></td>
-                <td><input type="text" id="builtInSorted8" readonly></td>
-                <td><input type="text" id="builtInSorted9" readonly></td>
-            </tr>
-        </tbody>
-    </table>
 </body>
+
 </html>
